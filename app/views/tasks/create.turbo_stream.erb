@@ -1,10 +1,9 @@
-<%= turbo_stream.append "tasks" do %>
-  <%= render @task %>
-  <p>
-    <%= link_to "Show this task", @task %>
-  </p>
+<turbo-stream action="eval">
+  <template>
+    <script>
+      $("#tasks").append("<%= j(render partial: "tasks/task", formats: [:html], locals: { task: @task }) %>");
 
-  <script>
-    alert("howdy!")
-  </script>
-<% end %>
+      $("#task_content").val("");
+    </script>
+  </template>
+</turbo-stream> 
