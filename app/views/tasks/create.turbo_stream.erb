@@ -1,0 +1,6 @@
+<%= turbo_stream.append "tasks" do %>
+  <%= render @task %>
+  <p>
+    <%= link_to "Show this task", @task %>
+  </p>
+<% end %>
